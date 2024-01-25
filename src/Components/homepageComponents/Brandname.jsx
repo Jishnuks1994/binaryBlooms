@@ -50,7 +50,7 @@ import { Typography, useMediaQuery,
       variants={variants}
       onViewportEnter={onScroll}
     >
-      <Typography sx={isMobile ? {fontFamily:'Poppins',fontSize:'15px'}:{fontFamily:'Poppins',fontSize:'30px'}} variant="h2" color="white">
+      <Typography sx={isMobile ? {fontFamily:'Poppins',fontSize:'15px'}:{fontFamily:'Poppins',fontSize:'30px',fontWeight:600}} variant="h2" color="white">
         <motion.span style={{fontSize:'1.2em'}} variants={letterVariants}>B</motion.span>
         <motion.span variants={letterVariants}>i</motion.span>
         <motion.span variants={letterVariants}>n</motion.span>

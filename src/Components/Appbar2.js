@@ -7,14 +7,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Slide from "@mui/material/Slide";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { styled } from "@mui/system";
-import BrandName from "./homepageComponents/Brandname";
-
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { useState } from'react';
 
 
 const GlassButton = styled(Button)(({ theme }) => ({
@@ -33,6 +33,16 @@ const GlassButton = styled(Button)(({ theme }) => ({
 export default function AppBar2() {
 
   const matches = useMediaQuery("(max-width:600px)");
+  const [anchorEl, setAnchorEl] = useState(null);
+
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
 
   return (
@@ -50,7 +60,7 @@ export default function AppBar2() {
           <Toolbar>
             {matches && (
               <IconButton
-                color="inherit"
+                color="dark"
                 aria-label="menu"
               >
                 <MenuIcon />
@@ -82,21 +92,49 @@ export default function AppBar2() {
                 aria-controls="ios-menu"
                 aria-haspopup="true"
                 sx={{color:'#4a4a4a',":hover":{color:'#0468d7'}}}
+                onClick={handleMenuClick}
               >
                 <b>iOS</b>
               </GlassButton>
+
+              <Menu
+             sx={{width:'300px'}}
+        id="ios-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {/* Add your menu items here */}
+        <MenuItem onClick={handleMenuClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 3</MenuItem>
+      </Menu>
 
             </Box>
 
             <Box sx={{ marginLeft: "1%" }}>
               <GlassButton
                 color="inherit"
-                aria-controls="dropdown-menu"
+                aria-controls="android-menu"
                 aria-haspopup="true"
                 sx={{color:'#4a4a4a',":hover":{color:'#0468d7'}}}
+                onClick={handleMenuClick}
               >
                 <b>Android</b>
               </GlassButton>
+
+              <Menu
+             sx={{width:'300px'}}
+        id="android-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {/* Add your menu items here */}
+        <MenuItem onClick={handleMenuClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 3</MenuItem>
+      </Menu>
             </Box>
 
             <Box sx={{ marginLeft: "1%" }}>
@@ -104,9 +142,24 @@ export default function AppBar2() {
                 aria-controls="web-menu"
                 aria-haspopup="true"
                 sx={{color:'#4a4a4a',":hover":{color:'#0468d7'}}}
+                onClick={handleMenuClick}
+
               >
                 <b>Web</b>
               </GlassButton>
+
+              <Menu
+             sx={{width:'300px'}}
+        id="web-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {/* Add your menu items here */}
+        <MenuItem onClick={handleMenuClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 3</MenuItem>
+      </Menu>
             </Box>
             <Box ml={'5%'}>
 

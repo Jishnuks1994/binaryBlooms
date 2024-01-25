@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import { motion, useAnimation } from "framer-motion";
 import {
   Button,
   Grid,
@@ -62,39 +61,22 @@ function Home() {
     transform: "translate(-50%, -50%)",
   };
 
-  // --------------------------------
-  // scroll animation
-  const controlsDown = useAnimation();
-  const controlsUp = useAnimation();
 
-  const variants = {
-    hidden: { opacity: 0, x: 400 },
-    visible: { opacity: 1, x: 0 },
-  };
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
-    const threshold = 200;
+    const threshold=1750
 
-    const threshold2=1750
-
-
-    // if (scrollY > threshold ) {
-    //   controlsDown.start("visible");
-    //   controlsUp.start("hidden");
-    // } else if(scrollY <= threshold ){
-    //   controlsDown.start("hidden");
-    //   controlsUp.start("visible");
-    // }
-
-    if (scrollY > threshold2 && showHeader) {
+    if (scrollY > threshold && showHeader) {
       // Switch to AppBar2
       setShowHeader(false);
-    } else if (scrollY <= threshold2 && !showHeader) {
+    } 
+    else if (scrollY <= threshold && !showHeader) {
       // Switch to Header
       setShowHeader(true);
     }
+
   };
 
   // Attach the scroll event listener when the component mounts
@@ -114,32 +96,8 @@ function Home() {
         <Box className="hero_section" style={gradientStyle}>
           <div id="triangle" style={overlayStyle}></div>
           <Header />
-          {/* ... (existing code) */}
-        
-      
 
-        
-        {/* <Header /> */}
-        {/* <AppBar2/> */}
         <div style={headingStyle}>
-          {/* <motion.div
-            initial="visible"
-            animate={controlsDown}
-            variants={variants}
-            transition={{ duration: 1.5 }}
-          >
-              <Typography
-                variant="h2"
-                color={"white"}
-                fontWeight={400}
-                fontFamily={"poppins"}
-                align="center"
-              >
-                <span style={{ fontSize: "1.5em" }}>B</span>loom from an idea!
-              </Typography>
-           
-          </motion.div> */}
-
           <AnimatedText />
         </div>
 

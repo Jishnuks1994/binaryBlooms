@@ -14,8 +14,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { styled } from "@mui/system";
 import BrandName from "./homepageComponents/Brandname";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { useState } from'react';
 
 function HideOnScroll(props) {
+
+ 
+
   const { children, window } = props;
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
@@ -51,6 +57,16 @@ const GlassButton = styled(Button)(({ theme }) => ({
 export default function HideAppBar(props) {
 
   const matches = useMediaQuery("(max-width:600px)");
+  const [anchorEl, setAnchorEl] = useState(null);
+
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
 
   return (
@@ -92,7 +108,7 @@ export default function HideAppBar(props) {
               <span style={{ fontSize: "1.2em" }}>B</span>inary Blooms
             </Typography> */}
             <BrandName/>
-            <Box sx={{ marginLeft: "auto" }}>
+            {/* <Box sx={{ marginLeft: "auto" }}>
             <GlassButton
                 aria-controls="ios-menu"
                 aria-haspopup="true"
@@ -100,25 +116,80 @@ export default function HideAppBar(props) {
                 <b>iOS</b>
               </GlassButton>
 
+            </Box> */}
+
+            <Box sx={{ marginLeft: "auto" }}>
+            <GlassButton
+                aria-controls="ios-menu"
+                aria-haspopup="true"
+                // onMouseEnter={handleMenuClick} 
+                // onMouseLeave={handleMenuClose}
+                onClick={handleMenuClick}
+
+              >
+                <b>iOS</b>
+              </GlassButton>
+              <Menu
+             sx={{width:'300px'}}
+        id="ios-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {/* Add your menu items here */}
+        <MenuItem onClick={handleMenuClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 3</MenuItem>
+      </Menu>
+
             </Box>
 
             <Box sx={{ marginLeft: "1%" }}>
               <GlassButton
                 color="inherit"
-                aria-controls="dropdown-menu"
+                aria-controls="android-menu"
                 aria-haspopup="true"
+                onClick={handleMenuClick}
               >
                 <b>Android</b>
               </GlassButton>
+
+              <Menu
+             sx={{width:'300px'}}
+        id="android-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {/* Add your menu items here */}
+        <MenuItem onClick={handleMenuClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 3</MenuItem>
+      </Menu>
             </Box>
 
             <Box sx={{ marginLeft: "1%" }}>
               <GlassButton
                 aria-controls="web-menu"
                 aria-haspopup="true"
+                onClick={handleMenuClick}
               >
                 <b>Web</b>
               </GlassButton>
+
+              <Menu
+             sx={{width:'300px'}}
+        id="web-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        {/* Add your menu items here */}
+        <MenuItem onClick={handleMenuClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Item 3</MenuItem>
+      </Menu>
+
             </Box>
             <Box ml={'5%'}>
 

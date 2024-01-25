@@ -30,6 +30,16 @@ const images = [
     imgPath:
       'https://i.postimg.cc/xTYVGgDm/Project-Documentation-2.jpg',
   },
+  // {
+  //   label: 'Story Board',
+  //   imgPath:
+  //     'https://i.postimg.cc/Zn2fVDL1/621e3d5b7e251a74835b0907-619cef5c40cb89d19533f5a8-6076f3f1884c3c2ea7e1b770-template-vignette-Storybo.png',
+  // },
+  // {
+  //   label: 'Sprint Planning with Jira agile project management',
+  //   imgPath:
+  //     'https://i.postimg.cc/T1M0bWY6/word-image-1.png',
+  // },
 ];
 
 function SwipeableTextMobileStepper() {

@@ -59,14 +59,16 @@ function Footer() {
           </Grid>
         </Grid>
 
-        <Box my={2}>
-          <YouTube sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
-          <Twitter sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
-          <GitHub sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
-          <Instagram sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
-          <WhatsApp sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
-          <LinkedIn sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
-        </Box>
+          <Box my={2}>
+            <YouTube sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
+            <Twitter sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
+            <GitHub sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
+            <Instagram sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
+            <WhatsApp sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
+            <LinkedIn sx={{ fontSize: '2xl', color: 'grey', marginRight: 2 }} />
+          </Box>
+          
+         
         <Divider />
         <div>
           <Grid container mt={2} justifyContent="space-between" alignItems="center">
